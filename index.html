@@ -397,6 +397,396 @@
             border: 1px solid #28a745;
             color: #72e08a;
         }
+    
+        /* =========================================================
+           MOBILE-FIRST RESPONSIVE IMPROVEMENTS
+           Ottimizzato soprattutto per smartphone
+           ========================================================= */
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .top-bar,
+        .view-screen {
+            min-width: 0;
+        }
+
+        .header-logo,
+        .prize-tracker,
+        .category-badge,
+        .question-box,
+        .option-text,
+        .ghigliottina-word-btn,
+        .clue-chip {
+            overflow-wrap: anywhere;
+            word-break: normal;
+        }
+
+        /* Evita doppio tap / zoom indesiderato sui controlli */
+        .btn,
+        .option-card,
+        .ghigliottina-word-btn {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Stati touch/focus più affidabili del solo hover */
+        .btn:active:not(:disabled),
+        .option-card:active:not(.disabled),
+        .ghigliottina-word-btn:active {
+            transform: scale(0.985);
+        }
+
+        .btn:focus-visible,
+        .option-card:focus-visible,
+        .ghigliottina-word-btn:focus-visible,
+        .final-input:focus-visible {
+            outline: 3px solid rgba(255,255,255,.9);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                min-height: 100dvh;
+                padding: 12px;
+                align-items: stretch;
+            }
+
+            .top-bar {
+                max-width: none;
+                margin-bottom: 12px;
+                padding: 10px 12px;
+                border-radius: 18px;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .header-logo {
+                flex: 1 1 auto;
+                min-width: 0;
+                display: flex;
+                align-items: center;
+                font-size: clamp(.95rem, 4.2vw, 1.25rem);
+                line-height: 1;
+                letter-spacing: clamp(1px, .7vw, 2px);
+                white-space: nowrap;
+            }
+
+            .prize-tracker {
+                flex: 0 0 auto;
+                max-width: 54%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 8px 11px;
+                border-radius: 14px;
+                font-size: clamp(.78rem, 3.3vw, 1rem);
+                line-height: 1.08;
+                letter-spacing: 0;
+                white-space: normal;
+            }
+
+            .view-screen {
+                max-width: none;
+                border-width: 2px;
+                border-radius: 16px;
+                padding: 18px 14px;
+                min-height: auto;
+            }
+
+            .cover-title {
+                font-size: clamp(1.75rem, 8vw, 2.25rem);
+                line-height: 1.05;
+                margin-bottom: 12px;
+            }
+
+            .cover-desc {
+                font-size: .98rem;
+                line-height: 1.5;
+                margin-bottom: 22px;
+            }
+
+            .category-badge {
+                width: 100%;
+                max-width: 100%;
+                font-size: .82rem;
+                line-height: 1.25;
+                letter-spacing: 1.1px;
+                padding: 8px 12px;
+                margin-bottom: 14px;
+            }
+
+            .question-box {
+                padding: 18px 14px;
+                font-size: 1.02rem;
+                line-height: 1.42;
+                min-height: 0;
+                margin-bottom: 14px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin-bottom: 16px;
+            }
+
+            .option-card {
+                width: 100%;
+                min-height: 62px;
+                padding: 11px 12px;
+                border-radius: 11px;
+                align-items: flex-start;
+            }
+
+            .option-letter {
+                width: 34px;
+                height: 34px;
+                min-width: 34px;
+                font-size: 1rem;
+                margin-right: 10px;
+            }
+
+            .option-text {
+                flex: 1;
+                min-width: 0;
+                font-size: .95rem;
+                line-height: 1.35;
+                padding-top: 3px;
+            }
+
+            .alert-toast {
+                padding: 10px 11px;
+                margin-bottom: 12px;
+                font-size: .9rem;
+                line-height: 1.35;
+            }
+
+            .controls {
+                gap: 10px;
+                padding-top: 12px;
+                flex-wrap: wrap;
+            }
+
+            #quiz-step,
+            #ghigliottina-step {
+                font-size: .84rem;
+                letter-spacing: .3px;
+            }
+
+            .btn {
+                min-height: 46px;
+                padding: 11px 18px;
+                font-size: .88rem;
+                letter-spacing: .6px;
+            }
+
+            .controls .btn {
+                margin-left: auto;
+            }
+
+            /* GHIGLIOTTINA */
+            .ghigliottina-pairs {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 18px 0;
+                width: 100%;
+            }
+
+            .ghigliottina-word-btn {
+                width: 100%;
+                min-width: 0;
+                min-height: 58px;
+                padding: 14px 12px;
+                font-size: clamp(1rem, 5vw, 1.25rem);
+                line-height: 1.15;
+                letter-spacing: 1px;
+                border-width: 2px;
+                border-radius: 12px;
+            }
+
+            .clues-board {
+                padding: 14px 10px;
+                margin-bottom: 16px;
+                border-radius: 12px;
+            }
+
+            .clues-title {
+                font-size: .82rem;
+                line-height: 1.25;
+                letter-spacing: 1.2px;
+                margin-bottom: 10px;
+            }
+
+            .clues-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+                width: 100%;
+            }
+
+            .clue-chip {
+                min-width: 0;
+                width: 100%;
+                padding: 9px 7px;
+                font-size: .9rem;
+                line-height: 1.15;
+                letter-spacing: .6px;
+                border-radius: 8px;
+            }
+
+            .clue-chip:nth-child(5) {
+                grid-column: 1 / -1;
+                width: min(100%, 220px);
+                justify-self: center;
+            }
+
+            .final-input-box {
+                gap: 12px;
+                margin-top: 2px;
+            }
+
+            .final-input-box p {
+                font-size: .98rem !important;
+                line-height: 1.4;
+            }
+
+            .final-input {
+                max-width: 100%;
+                min-height: 52px;
+                padding: 12px 10px;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+
+            #screen-ghigliottina-final .btn {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 8px;
+            }
+
+            .top-bar {
+                padding: 8px;
+                border-radius: 14px;
+                gap: 7px;
+            }
+
+            .header-logo {
+                font-size: .9rem;
+                letter-spacing: 1px;
+            }
+
+            .prize-tracker {
+                max-width: 56%;
+                padding: 7px 8px;
+                font-size: .72rem;
+                border-width: 1px;
+            }
+
+            .view-screen {
+                padding: 15px 11px;
+                border-radius: 14px;
+            }
+
+            .category-badge {
+                font-size: .75rem;
+            }
+
+            .question-box {
+                padding: 15px 11px;
+                font-size: .96rem;
+            }
+
+            .option-card {
+                padding: 10px;
+            }
+
+            .option-text {
+                font-size: .91rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .controls .btn {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            #quiz-step,
+            #ghigliottina-step {
+                text-align: center;
+                width: 100%;
+            }
+
+            .clues-list {
+                grid-template-columns: 1fr;
+            }
+
+            .clue-chip:nth-child(5) {
+                grid-column: auto;
+                width: 100%;
+            }
+        }
+
+        /* Telefoni bassi / landscape */
+        @media (max-height: 600px) and (orientation: landscape) {
+            body {
+                padding: 8px;
+            }
+
+            .top-bar {
+                margin-bottom: 8px;
+            }
+
+            .view-screen {
+                padding: 12px;
+            }
+
+            .question-box {
+                padding: 12px;
+                margin-bottom: 10px;
+            }
+
+            .options-grid {
+                gap: 8px;
+                margin-bottom: 10px;
+            }
+
+            .option-card {
+                min-height: 50px;
+                padding: 8px 10px;
+            }
+
+            .ghigliottina-pairs {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin: 12px 0;
+            }
+
+            .clues-board {
+                margin-bottom: 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -443,8 +833,8 @@
         <div id="ghigliottina-toast" class="alert-toast alert-danger"></div>
 
         <div class="ghigliottina-pairs">
-            <button id="ghigliottina-word-1" class="ghigliottina-word-btn" onclick="chooseGhigliottinaWord(0)">PAROLA 1</button>
-            <button id="ghigliottina-word-2" class="ghigliottina-word-btn" onclick="chooseGhigliottinaWord(1)">PAROLA 2</button>
+            <button type="button" id="ghigliottina-word-1" class="ghigliottina-word-btn" onclick="chooseGhigliottinaWord(0)">PAROLA 1</button>
+            <button type="button" id="ghigliottina-word-2" class="ghigliottina-word-btn" onclick="chooseGhigliottinaWord(1)">PAROLA 2</button>
         </div>
 
         <div class="clues-board">
@@ -467,7 +857,7 @@
 
         <div class="final-input-box">
             <p style="text-align: center; font-size: 1.1rem;">Qual è la parola nascosta che collega tutti e 5 gli indizi?</p>
-            <input type="text" id="final-word-input" class="final-input" placeholder="MESSAGGIO..." autocomplete="off">
+            <input type="text" id="final-word-input" class="final-input" placeholder="MESSAGGIO..." autocomplete="off" autocapitalize="characters" enterkeyhint="done" inputmode="text">
             <button class="btn" onclick="submitFinalWord()">CONFERMA RISPOSTA</button>
         </div>
     </div>
@@ -704,10 +1094,18 @@
             renderCluesBoard('clues-container-select');
         }
 
+        let ghigliottinaLocked = false;
+
         function chooseGhigliottinaWord(chosenOption) {
+            if (ghigliottinaLocked) return;
+            ghigliottinaLocked = true;
+
             const pair = ghigliottinaPairs[ghigliottinaIndex];
             const chosenWord = chosenOption === 0 ? pair.optionA : pair.optionB;
             const toast = document.getElementById('ghigliottina-toast');
+
+            document.getElementById('ghigliottina-word-1').disabled = true;
+            document.getElementById('ghigliottina-word-2').disabled = true;
 
             if (chosenWord === pair.correct) {
                 unlockedClues.push(pair.correct);
@@ -723,11 +1121,16 @@
             ghigliottinaIndex++;
 
             setTimeout(() => {
+                ghigliottinaLocked = false;
+                document.getElementById('ghigliottina-word-1').disabled = false;
+                document.getElementById('ghigliottina-word-2').disabled = false;
+
                 if (ghigliottinaIndex < ghigliottinaPairs.length) {
                     loadGhigliottinaPair(ghigliottinaIndex);
                 } else {
                     renderCluesBoard('clues-container-final');
                     switchScreen('screen-ghigliottina-final');
+                    setTimeout(() => document.getElementById('final-word-input').focus(), 80);
                 }
             }, toast.style.display === 'block' ? 1500 : 300);
         }
@@ -757,6 +1160,14 @@
 
             switchScreen('screen-end');
         }
+
+
+        document.getElementById('final-word-input').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                submitFinalWord();
+            }
+        });
 
         function resetGame() {
             document.getElementById('final-word-input').value = '';
